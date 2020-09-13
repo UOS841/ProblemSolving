@@ -49,6 +49,6 @@ int main() {
 	}
 	for (auto& x : list)
 		cout << x;
-        
+
 	return 0;
 }

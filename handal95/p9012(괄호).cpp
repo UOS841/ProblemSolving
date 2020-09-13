@@ -31,6 +31,7 @@ int main() {
 		if (stack != 0) {
 			ans = false;
 		}
+
 		cout << (ans ? "YES" : "NO");
 	}
 

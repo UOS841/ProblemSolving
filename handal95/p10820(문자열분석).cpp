@@ -16,7 +16,6 @@ int main() {
 		int digit = 0;
 		int space = 0;
 
-
         int len = str.length();
 		for (int i = 0; i < len; i++) {
 			char ch = str.at(i);

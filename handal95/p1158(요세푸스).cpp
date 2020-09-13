@@ -19,7 +19,7 @@ int main() {
 
 	int cnt = 1;
 	cout << "<";
-	while (que.size()>1) {
+	while (que.size() > 1) {
 		for (int i = 1; i < K; i++) {
 			que.push(que.front());
 			que.pop();
