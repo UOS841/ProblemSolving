@@ -1,4 +1,6 @@
 .exe
 
-.vs/
-.vscode/
+.vs
+.vscode
+
+.json
