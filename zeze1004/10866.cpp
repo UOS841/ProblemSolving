@@ -56,7 +56,7 @@ int main(void) {
                     cout << deq.size() << "\n";
 
                 }
-                else if (str` == "empty") {
+                else if (str == "empty") {
                  
                          if (deq.empty()) {
                             cout << 1 << "\n";
