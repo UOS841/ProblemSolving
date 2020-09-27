@@ -2,7 +2,9 @@
 #include <vector>
 #include <unordered_map>
 
+
 using namespace std;
+
 
 vector<int> parent;
 vector<int> friends;
@@ -12,13 +14,14 @@ int find(int x) {
 	return parent[x] = find(parent[x]);
 }
 
-void merge(int a, int b) {
+int merge(int a, int b) {
 	a = find(a);
     b = find(b);
 	if (a != b) {
-        parent[a] = b;
-        friends[b] += friends[a];
+        parent.at(b) = a;
+        friends.at(a) += friends.at(b);
     }
+	return friends.at(a);
 }
 
 int main() {
@@ -34,7 +37,7 @@ int main() {
 
 		parent.resize(2*F);
 		for (int i = 0; i < 2*F; i++){
-            parent[i] = i;
+            parent.at(i) = i;
         }
         
         friends.assign(2*F, 1);
@@ -51,8 +54,7 @@ int main() {
 			if (id.find(B) == id.end()) {
 				id.insert({ B,count++ });
 			}
-			merge(id[A], id[B]);
-			cout << friends[find(id[A])] << "\n";
+			cout << merge(id[A], id[B]) << "\n";
 		}
 	}
 }
