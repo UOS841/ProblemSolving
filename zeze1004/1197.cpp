@@ -33,7 +33,11 @@ void union(int node1, int node2) {
         parent[parent[node2] = parent[node1];  // 어는 한 쪽 노드의 부모를 연결되는 다른 한쪽 노드로 설정
     }
 }
-
+int Sort(int E, vector<int> &v){
+    for(int i = 0; i < E; i++) {
+        return v = sort(v[i]);
+    }
+}
 
 int main() { 
     int V,E;    //정점의 개수, 간선의 개수
@@ -47,6 +51,7 @@ int main() {
         parent.push_back(B); // 2n+1
         weight.push_back(C);     
     }
+    Sort(E, weight);
 
     // 부모 찾는 함수
     for(int n = 0; n < E; n++) {
