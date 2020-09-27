@@ -48,7 +48,7 @@ int main() {
     }
     // ?ㅅ? 이걸 이제 어떻게 하지,,,
     // weight 오름차순에 따라 parent 배열 바꾸기
-    sort(weight.begin, weight.end);
+    sort(weight.begin(), weight.end());
 
 
     // 부모 찾는 함수
