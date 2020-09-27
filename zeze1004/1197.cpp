@@ -66,14 +66,12 @@ int main() {
         bool sameParent(parent[2*n], parent[(2*n)+1]);
         if (sameParent == true) {
             // 각자의 부모를 서로로?
-            void union(parent[2*n], parent[(2*n)+1])
+            void union(parent[2*n], parent[(2*n)+1]);
             int weight =+ weight[n];           
             }
         }
     }
     cout << weight;
-
-  
 
     return 0;
 }
