@@ -51,7 +51,10 @@ int main() {
         parent.push_back(B); // 2n+1
         weight.push_back(C);     
     }
+    // ?ㅅ? 이걸 이제 어떻게 하지,,,
+    // weight 오름차순에 따라 parent 배열 바꾸기
     Sort(E, weight);
+
 
     // 부모 찾는 함수
     for(int n = 0; n < E; n++) {
