@@ -66,7 +66,6 @@ int main(void) {
 
 	// look for minimum weight edges
 	sum_weight = 0;
-	max_weight = 0;
 	for (i = 0; i < E; i++) {
 		C = edges[i][0];
 		A = edges[i][1];
@@ -74,7 +73,7 @@ int main(void) {
 
 		if (merge(A, B, parent)) {
 			sum_weight += C;
-			max_weight = C > max_weight ? C : max_weight;
+			max_weight = C;
 		}
 	}
 
