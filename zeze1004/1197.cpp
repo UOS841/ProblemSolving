@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
 
 vector<int> parent;
@@ -29,13 +29,8 @@ int findParent(int node) {
 void union(int node1, int node2) {
     parent[node1] = findParent(node1); // x 부모를 찾고
     parent[node2] = findParent(node2); // y 부모를 찾고
-    if( parent[node1] != parent[node2] ){   // 두 노드의 부모가 다르다면
-        parent[parent[node2] = parent[node1];  // 어는 한 쪽 노드의 부모를 연결되는 다른 한쪽 노드로 설정
-    }
-}
-int Sort(int E, vector<int> &v){
-    for(int i = 0; i < E; i++) {
-        return v = sort(v[i]);
+    if(parent[node1] =! parent[node2]){   // 두 노드의 부모가 다르다면
+        parent[parent[node2]] = parent[node1];  // 어는 한 쪽 노드의 부모를 연결되는 다른 한쪽 노드로 설정
     }
 }
 
@@ -53,7 +48,7 @@ int main() {
     }
     // ?ㅅ? 이걸 이제 어떻게 하지,,,
     // weight 오름차순에 따라 parent 배열 바꾸기
-    Sort(E, weight);
+    sort(weight.begin(), weight.end());
 
 
     // 부모 찾는 함수
@@ -68,9 +63,10 @@ int main() {
             // 각자의 부모를 서로로?
             void union(parent[2*n], parent[(2*n)+1]);
             int weight =+ weight[n];           
-            }
         }
     }
+    
+    
     cout << weight;
 
     return 0;
