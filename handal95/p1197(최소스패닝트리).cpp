@@ -42,7 +42,7 @@ int main() {
 		pq.push(make_pair(C, make_pair(A, B)));
 	}
 
-	long long answer = 0;
+	int answer = 0;
 	while (!pq.empty()) {
 		Edge edge = pq.top();
 		int val = edge.first;

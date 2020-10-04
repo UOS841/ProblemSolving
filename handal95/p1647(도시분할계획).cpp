@@ -2,13 +2,10 @@
 #include <vector>
 #include <queue>
 
-
 using namespace std;
 typedef pair<int, pair<int, int>> Edge;
 
-
 vector<int> parents;
-priority_queue<Edge, vector<Edge>, greater<Edge>> pq;
 
 int find(int x) {
 	if (x == parents[x])
@@ -33,7 +30,9 @@ int main() {
 		M;  // The number of roads  1 <= M <= 10^6
 	cin >> N >> M;
 	parents.resize(N + 1);
-	for (int i = 1; i <= N; i++) {
+    priority_queue<Edge, vector<Edge>, greater<Edge>> pq;
+	
+    for (int i = 1; i <= N; i++) {
 		parents[i] = i;
 	}
 
@@ -54,6 +53,7 @@ int main() {
 		int A = edge.second.first;
 		int B = edge.second.second;
 		pq.pop();
+        
 		if (find(A) != find(B)) {
 			merge(A, B);
 			ans += val;
