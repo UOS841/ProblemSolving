@@ -1,9 +1,9 @@
 #include<iostream>
 #include <vector>
 
+#define MOD 1000000000
 
 using namespace std;
-
 
 int main() {
 	int N, K;
@@ -12,7 +12,7 @@ int main() {
 	dp[0] = 1;
 	for (int i = 1; i <= K; i++) {
 		for (int i = 1; i <= N; i++) {
-			dp[i] = (dp[i] + dp[i - 1])%1000000000;
+			dp[i] = (dp[i] + dp[i - 1]) % MOD;
 		}
 	}
 	cout << dp[N];
