@@ -33,12 +33,11 @@ int main(){
 		if (str == ".") 
 			break;
 
-
 		int len = str.length();
 		vector<int> fail = get_fail(str);
 
 		int check = fail[len - 1];
-		bool flag = check % (len - check) != 0;
-		cout << (flag ? 1 : (len / (len - fail[len - 1]))) << "\n";
+		bool flag = check % (len - check) == 0;
+		cout << (flag ? (len / (len - check)) : 1 ) << "\n";
 	}
 }

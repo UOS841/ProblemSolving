@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 vector<int> get_fail(string str) {
 	int str_length = str.size();
 	vector<int> fail(str_length, 0);
@@ -27,6 +26,8 @@ vector<int> KMP(string text, string pattern) {
 	vector<int> fail = get_fail(pattern);
 	vector<int> found;
 	for (int i= 0, j= 0; i < text_len; i++) {
+        // i :    text 에서의 iterator
+        // j : pattern 에서의 iterator
 		while (j > 0 && text[i] != pattern[j]) {
 			j = fail[j - 1];
 		}
@@ -48,8 +49,8 @@ int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	string T, 
-		   P; 
+	string T,   // Text String
+		   P;   // Pattern String
 	getline(cin, T);
 	getline(cin, P);
 
