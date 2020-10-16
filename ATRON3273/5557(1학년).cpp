@@ -29,7 +29,9 @@ int main()
 					dp[i][j - num[i]] += dp[i - 1][j];
 				}
 			}
+			cout << dp[i][j] << " ";
 		}
+		cout << "\n";
 	}
 	cout << dp[N - 2][num[N - 1]];
 
