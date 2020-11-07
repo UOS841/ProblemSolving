@@ -45,14 +45,15 @@ int main(){
     sort(points.begin() + 1, points.end(), sort_clockwise);
 
     stack<Point> selected_points;
-    selected_points.push(points[0]);
-    selected_points.push(points[1]);
+    selected_points.push(points[0]); // y 가 제일 작은녀석
+    selected_points.push(points[1]); // 가장 각도가 작은녀석
 
     for(int i = 2; i < N ; i++){
         while(selected_points.size() >= 2){
             Point second = selected_points.top();
             selected_points.pop();
             Point first = selected_points.top();
+
             long long area = ccw(first, second, points[i]);
             if(area > 0){
                 selected_points.push(second);

@@ -14,7 +14,7 @@ double ccw(Point p1, Point p2, Point p3){
     double area = (
         (p1.x*p2.y + p2.x*p3.y + p3.x*p1.y) - 
         (p1.x*p3.y + p2.x*p1.y + p3.x*p2.y) 
-    );
+    ) / 2.0;
     return area;
 }
 
@@ -26,13 +26,11 @@ int main() {
         cin >> points[i].x >> points[i].y;
     }
 
-    cout << fixed;
-    cout.precision(1);
     double total_area = 0;
     for(int i = 1; i < N-1; i++){
-        double area = ccw(points[0], points[i], points[i+1]);
-        cout << area << endl;
-        total_area += area;  
+        total_area += ccw(points[0], points[i], points[i+1]); 
     }
-    cout << llabs(total_area)/2.0 << endl;
+    cout << fixed;
+    cout.precision(1);
+    cout << abs(total_area) << endl;
 }
