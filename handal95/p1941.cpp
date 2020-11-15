@@ -13,13 +13,10 @@ char map[5][5];
 set<vector<int>> s;
 
 bool is_adjacent(bool is_visited[5][5], int r, int c){
-    if(1 <= r && is_visited[r-1][c] == true)
-        return true;
-    if(r <= 3 && is_visited[r+1][c] == true)
-        return true;
-    if(1 <= c && is_visited[r][c-1] == true)
-        return true;
-    if(c <= 3 && is_visited[r][c+1] == true)
+    if((0 < r && is_visited[r-1][c] == true) ||
+       (r < 4 && is_visited[r+1][c] == true) ||
+       (0 < c && is_visited[r][c-1] == true) ||
+       (c < 4 && is_visited[r][c+1] == true))
         return true;
     return false;
 }
@@ -27,6 +24,7 @@ bool is_adjacent(bool is_visited[5][5], int r, int c){
 void dfs(bool is_visited[5][5], int d, string str){
     int answer = 0;
     if(d==7){
+        // Break point
         int count = 0;
         for(int i = 0; i < str.length(); i++){
             if(str.at(i)=='S')
@@ -46,6 +44,7 @@ void dfs(bool is_visited[5][5], int d, string str){
         }
         return;
     }
+
 
     for(int nr = 0; nr < 5; nr++){
         for(int nc = 0; nc< 5; nc++){
@@ -72,7 +71,7 @@ int main(){
     for(int r = 0; r < 5; r++){
         for(int c = 0; c < 5; c++){
             string str;
-            str.resize(8);
+            str.resize(7);
             is_visited[r][c] = true;
             str.at(0) = map[r][c];
             dfs(is_visited, 1, str);
@@ -82,11 +81,3 @@ int main(){
 
     cout << s.size() << endl;
 }
-
-/*
-abcde
-fghij
-klmno
-pqrst
-uvwxy
-*/
