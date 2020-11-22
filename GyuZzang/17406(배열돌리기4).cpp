@@ -65,14 +65,8 @@ int main() {
 	for (int i = 0; i < K; i++) {
 		cin >> rotation[i][0] >> rotation[i][1] >> rotation[i][2];
 	}
-
-	/*for (int i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			cout<< rot_m[i][j] <<" ";
-		}
-		cout << endl;
-	}
-*/
+	 
+	sort(rotation.begin(), rotation.end());
 
 	do {
 
