@@ -8,7 +8,7 @@ int head[51];
 
 int find_head(int x)
 {
-	if (x = head[x])
+	if (x == head[x])
 	{
 		return x;
 	}
@@ -87,12 +87,7 @@ int main()
 
 		for (int i = 1; i <= N; i++)
 		{
-			cout << head[i] << " ";
-		}
-		for (int i = 1; i <= N; i++)
-		{
-			head[i] = find_head(head[i]);
-			cout << head[i] << " ";
+			head[i] = find_head(i);
 		}
 
 
