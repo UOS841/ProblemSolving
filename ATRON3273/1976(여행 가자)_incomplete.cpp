@@ -10,13 +10,11 @@ bool find_path(int start, int end)
 {
 	bool is_possible = false;
 
-	cout << "start function " << start << " " << end << endl;
 	for (int i = 0; i < path[start].size(); i++)
 	{
 		// 만약 start에서 end로 갈 수 있다면 true
 		if (path[start][i] == end)
 		{
-			cout << "find : " << start << "->" << end << endl;
 			is_possible = true;
 			break;
 		}
@@ -44,8 +42,6 @@ bool find_path(int start, int end)
 			// 해당 경로로 갈 수 있다고 저장, true 반환
 			if (find_path(path[start][i], end))
 			{
-				cout << "find : " << start << "->" << path[start][i] << "->" << end << endl;
-
 				path[start].push_back(end);
 				path[end].push_back(start);
 				is_possible = true;
@@ -80,18 +76,27 @@ int main()
 			}
 		}
 	}
-	
+
 	// 여행 순서 입력
 	for (int i = 0; i < M; i++)
 	{
 		cin >> plan[i];
 	}
 
+	// 여행 경로를 따라 탐색
 	for (int i = 0; i < M - 1; i++)
 	{
-		visited.resize(201, false);
-		cout << "current : " << plan[i] << " " << plan[i + 1] << endl;
-		if (!find_path(plan[i], plan[i + 1]))
+		// 매번 탐색 시 visited 벡터 false로 초기화
+		visited.assign(201, false);
+
+		// 만약 출발지와 도착지가 같다면 그대로 넘김
+		if (plan[i] == plan[i + 1])
+		{
+			continue;
+		}
+		// 만약 출발지에서 도착지로 갈 수 없다면
+		// result를 false로 설정, break
+		else if (!find_path(plan[i], plan[i + 1]))
 		{
 			result = false;
 			break;
