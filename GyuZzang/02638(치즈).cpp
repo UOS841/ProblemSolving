@@ -5,31 +5,42 @@
 #define Cheese 1
 #define Air 2
 #define WithAir 3
+#define Else 0
 
 using namespace std;
+vector<vector<int>> m;
+queue<pair<int, int>> q;
 
-vector<vector<int>> set_Air(vector<vector<int>> m, pair<int,int> start) {
-	queue<pair<int, int>> q;
+void set_Air(pair<int,int> start) {
 
 	q.push(start);
+	m[start.first][start.second] = Air;
+
 	while (!q.empty()) {
 		pair<int, int> now = q.front();
 		q.pop();
-		m[now.first][now.second] = Air;
 
-		if (now.first != 0 && m[now.first - 1][now.second] == 0) q.push({ now.first - 1, now.second });
-		if (now.first != m.size() - 1 && m[now.first + 1][now.second] == 0) q.push({ now.first + 1, now.second });
-		if (now.second != 0 && m[now.first][now.second - 1] == 0) q.push({ now.first, now.second - 1 });
-		if (now.second != m[0].size() - 1 && m[now.first][now.second + 1] == 0) q.push({ now.first, now.second + 1 });
-
+		if (now.first != 0 && m[now.first - 1][now.second] == 0) {
+			m[now.first - 1][now.second] = Air;
+			q.push({ now.first - 1, now.second });
+		}
+		if (now.first != m.size() - 1 && m[now.first + 1][now.second] == 0) {
+			m[now.first + 1][now.second] = Air;
+			q.push({ now.first + 1, now.second });
+		}
+		if (now.second != 0 && m[now.first][now.second - 1] == 0) {
+			m[now.first][now.second - 1] = Air;
+			q.push({ now.first, now.second - 1 });
+		}
+		if (now.second != m[0].size() - 1 && m[now.first][now.second + 1] == 0) {
+			m[now.first][now.second + 1] = Air;
+			q.push({ now.first, now.second + 1 });
+		}
 	}
-
-	return m;
 }
 
 int main() {
 	int N, M;
-	vector<vector<int>> m;
 	int time = 0;
 	cin >> N >> M;
 
@@ -42,7 +53,7 @@ int main() {
 		}
 	}
 	
-	m = set_Air(m, { 0,0 });
+	set_Air({ 0,0 });
 
 	while (1) {
 		
@@ -83,7 +94,7 @@ int main() {
 		for (int i = 1; i < N - 1; i++) {
 			for (int j = 1; j < M - 1; j++) {
 				if (m[i][j] == 0 && (m[i - 1][j] == Air || m[i + 1][j] == Air || m[i][j - 1] == Air || m[i][j + 1] == Air))
-					m = set_Air(m, { i,j });
+					set_Air({ i,j });
 			}
 		}
 
