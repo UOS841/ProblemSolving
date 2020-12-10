@@ -26,7 +26,7 @@ int main(){
     cin >> N;
     popularity.resize(N+1);
     graph.resize(N+1);
-    Group selected(N+1, GROUP_NONE);
+    Group selected(N+1);
 
     // Input popularity
     for(int i = 1 ; i <= N; i++){

@@ -26,7 +26,7 @@ int get_population_of_district(int start, vector<Area> &areas) {
 
 	queue<Area *>
 		visiting_queue;
-
+ 
 	now = &areas[start];
 	district_id = now->district_id;
 	population = 0;

@@ -60,13 +60,12 @@ int main(){
             s.push(make_pair(next_pipe, DIAG));
         }
         //GARO
-        if( is_in_col && cur_dir != SERO && map[row][col+1] == EMPTY){
+        if(is_in_col && cur_dir != SERO && map[row][col+1] == EMPTY){
             Pipe next_pipe = make_pair(row, col+1);
             s.push(make_pair(next_pipe, GARO));
         }
-        
         //SERO
-        if( is_in_row && cur_dir != GARO && map[row+1][col] == EMPTY){
+        if(is_in_row && cur_dir != GARO && map[row+1][col] == EMPTY){
             Pipe next_pipe = make_pair(row+1, col);
             s.push(make_pair(next_pipe, SERO));
         }
