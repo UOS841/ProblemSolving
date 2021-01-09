@@ -1,4 +1,4 @@
-#define INF 0x7FFFFFFF
+#define INF 0x0FFFFFFF
 
 #include <iostream>
 #include <vector>
@@ -39,7 +39,6 @@ int dijkstra(vector<vector<pair<int, int>>> graph, int start, int end)
 	else
 	{
 		return distance[end];
-
 	}
 }
 
@@ -57,7 +56,7 @@ int main()
 		graph[b].push_back(make_pair(c, a));
 	}
 	cin >> v1 >> v2;
-	
+
 	case1 = dijkstra(graph, 1, v1) + dijkstra(graph, v1, v2) + dijkstra(graph, v2, N);
 	case2 = dijkstra(graph, 1, v2) + dijkstra(graph, v2, v1) + dijkstra(graph, v1, N);
 
