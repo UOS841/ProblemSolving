@@ -1,26 +1,31 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
 int main() {
 	int G, P, g, cnt = 0;
-	vector<bool> gate;
+	vector<int> gate;
 	
 	cin >> G >> P;
-	gate.resize(G + 1, 0);
+	gate.resize(G + 1);
+
+	for (int i = 0; i <= G; i++) {
+		gate[i] = i ;
+	}
 
 	while (P--) {
 		cin >> g;
-		int i;
-		for (i = g; i > 0; i--) {
-			if (!gate[i]) {
-				gate[i] = 1;
-				cnt++;
-				break;
-			}
+		
+		if (upper_bound(gate.begin(), gate.end(), g) - gate.begin() - 1) {
+			gate.erase(upper_bound(gate.begin(), gate.end(), g) - 1);
+			cnt++;
 		}
-		if (!i) break;
+		else {
+			break;
+		}
+		//for (int i : gate) cout << i<<" ";
 
 	}
 	cout << cnt;
