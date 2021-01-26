@@ -9,9 +9,9 @@ int main(){
     int N;
     cin >> N;
     // require size , { index, time }
-    vector<pair<int, pair<int, int>>> buildings(N+1, {0, {0, 0}});
-    vector<vector<int>> next(N+1, vector<int>());
-    vector<int> required_count(N+1, 0);
+    vector<pair<int, pair<int, int>>> buildings(N + 1, {0, {0, 0}});
+    vector<vector<int>> next(N + 1, vector<int>());
+    vector<int> required_count(N + 1, 0);
 
     int val = 0;
     for(int i = 1; i <= N; i++){
