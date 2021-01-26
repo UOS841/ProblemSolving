@@ -3,9 +3,10 @@
 #include <vector>
 #include <queue>
 
+
 using namespace std;
 
-bool is_prime_num(int num);
+
 int main(){
     ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
@@ -46,14 +47,4 @@ int main(){
     }
 
     cout << answer << endl;
-}
-
-
-bool is_prime_num(int num){
-    for(int i = 2; i <= sqrt(num); i++){
-        if(num % i == 0){
-            return false;
-        }
-    }
-    return true;
 }

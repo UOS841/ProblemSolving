@@ -4,19 +4,21 @@
 
 using namespace std;
 
+typedef pair<int, int> Flower;
+typedef vector<Flower> Flowers;
+
 int main(){
     int N;
     cin >> N;
 
-    vector<pair<int, int>> flowers;
+    Flowers flowers(N);
+
     for(int i = 0; i < N; i++){
         int s_month, s_day, e_month, e_day;
         cin >> s_month >> s_day >> e_month >> e_day;
 
-        int s_date = s_month * 100 + s_day;
-        int e_date = e_month * 100 + e_day - 1;
-
-        flowers.push_back({s_date, e_date});
+        flowers[i].first = s_month * 100 + s_day;
+        flowers[i].second = e_month * 100 + e_day - 1;
     }
 
     sort(flowers.begin(), flowers.end());
@@ -24,14 +26,9 @@ int main(){
     int answer = 0;
     int flowering_date = 0;
     for (int date = 301; date <= 1130; date++){
-        cout << "date : " << date << endl;
         bool planted = false;
 
-        for(int i = 0; i < N; i++){
-            if(flowers[i].first > date){
-                break;
-            }
-
+        for(int i = 0; flowers[i].first < date; i++){
             if(flowers[i].second > flowering_date){
                 flowering_date = max(flowers[i].second, flowering_date);
                 planted = true;
@@ -41,9 +38,6 @@ int main(){
         if(planted){
             date = flowering_date;
             answer++;
-        } else {
-            answer = 0;
-            break;
         }
     }
 
