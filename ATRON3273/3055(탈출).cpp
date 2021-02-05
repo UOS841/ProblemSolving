@@ -34,7 +34,7 @@ vector<vector<int>> water_flow(int R, int C)
 		int cur_C = Q.front().first.second;
 		int cur_phase = Q.front().second;
 		Q.pop();
-		
+
 		// queue에서 pop한 좌표를 방문하지 않았다면 flow_phase_map에 기록
 		if (visited[cur_R][cur_C] == false)
 		{
@@ -81,7 +81,7 @@ int go_home(vector<vector<int>> flow_phase, pair<int, int> hedgehog_loc, pair<in
 	vector<vector<bool>> visited(R, vector<bool>(C, false));	// 여기에 방문한 좌표인지 기록
 	vector<vector<int>> move_phase_map(R, vector<int>(C, 0));	// 여기에 각 좌표에 몇 단계만에 도달할 수 있는지 기록
 	queue<pair<pair<int, int>, int>> Q;
-	
+
 	// queue에 초기 고슴도치 좌표를 push
 	Q.push(make_pair(hedgehog_loc, 0));
 
@@ -111,8 +111,8 @@ int go_home(vector<vector<int>> flow_phase, pair<int, int> hedgehog_loc, pair<in
 					// next 좌표의 map이 고슴도치가 다닐 수 있는 공간('.', 'S')임과 동시에 방문하지 않은 좌표고
 					if ((map[next_move_R][next_move_C] == '.' || map[next_move_R][next_move_C] == 'S') && visited[next_move_R][next_move_C] == false)
 					{
-						// next 좌표에서의 phase가 물이 차는 단계보다 작아서 고슴도치가 그 좌표로 갈 수 있으면
-						if (flow_phase[next_move_R][next_move_C] > next_phase)
+						// next 좌표에서의 phase가 물이 차는 단계보다 작거나 애초에 물이 안 넘치기에 고슴도치가 그 좌표로 갈 수 있으면
+						if (flow_phase[next_move_R][next_move_C] > next_phase || flow_phase[next_move_R][next_move_C] == 0)
 						{
 							// 해당 좌표와 phase값을 queue에 push
 							Q.push(make_pair(make_pair(next_move_R, next_move_C), next_phase));
