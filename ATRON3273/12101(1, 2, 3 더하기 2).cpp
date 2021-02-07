@@ -44,7 +44,7 @@ bool dfs(int sum, int count)
 
 int main()
 {
-	// cin >> n >> k;
+	cin >> n >> k;
 
 	dfs(0, 0);
 	if (seq.size() == 0)
