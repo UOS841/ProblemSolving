@@ -28,19 +28,4 @@ int main(){
         numbers[i] += baseint;
         cout << numbers[i] << " ";
     }
-
-    vector<int> valid(10);
-    for(int num = 1; num <= N; num++){
-        int val = num;
-        while(val > 0){
-            valid[val%10]++;
-            val /= 10;
-        }
-    }
-    cout << endl << "valid" << endl;
-    for(int i = 0; i < 10; i++){
-        cout << valid[i] << " ";
-    }
-    cout << endl;
-
 }

@@ -27,6 +27,7 @@ int main(){
         cout << "-1";
         return 0;
     }
+
     int cur = N;
     vector<int> answer;
     while(K >= 1 && cur >= 1){

@@ -19,10 +19,10 @@ void dfs(Coins coins, int index){
                 }
             }
 
-            if(tails > coins.size()/2 ){
-                for(int r = 0; r < coins.size(); r++){
-                    coins[r][c] = (coins[r][c] == 'H' ? 'T' : 'H');
-                }
+            if(tails > coins.size() / 2){
+                // for(int r = 0; r < coins.size(); r++){
+                //    coins[r][c] = (coins[r][c] == 'H' ? 'T' : 'H');
+                //}
                 tails = coins.size() - tails;
             }
             tail_total += tails;
@@ -37,9 +37,9 @@ void dfs(Coins coins, int index){
     }
 
     dfs(coins, index+1);
-    for(int i = 0; i < coins.size(); i++){
-        coins[index][i] = (coins[index][i] == 'H' ? 'T' : 'H');
-    }
+    // for(int i = 0; i < coins.size(); i++){
+    //     coins[index][i] = (coins[index][i] == 'H' ? 'T' : 'H');
+    // }
 }
 
 int main(){
@@ -53,15 +53,4 @@ int main(){
     }
     dfs(coins, 0);
     cout << answer << endl;
-}
-
-void printCoins(Coins coins){
-    int N = coins.size();
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < N; j++){
-            cout << coins[i][j];
-        }
-        cout << endl;
-    }
-    cout << endl;
 }

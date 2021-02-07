@@ -9,7 +9,7 @@ typedef vector<vector<char>> Map;
 
 Map map;
 int answer = 0;
-void dfs(int depth, vector<int> path, int r, int c){
+void dfs(int depth, vector<bool> path, int r, int c){
     answer = max(answer, depth);
 
     for(int d = 0; d < 4; d++){
@@ -19,10 +19,10 @@ void dfs(int depth, vector<int> path, int r, int c){
             continue;
         }
         int tile = map[nR][nC] - 'A';
-        if(path[tile] == 0){
-            path[tile] = 1;
+        if(path[tile] == false){
+            path[tile] = true;
             dfs(depth+1, path, nR, nC);
-            path[tile] = 0;
+            path[tile] = false;
         }
     }
 }
@@ -39,8 +39,8 @@ int main(){
         }
     }
 
-    vector<int> path(26, 0);
-    path[map[0][0] - 'A'] = 1;
+    vector<bool> path(26, false);
+    path[map[0][0] - 'A'] = true;
     dfs(1, path, 0, 0);
     cout << answer;
 }

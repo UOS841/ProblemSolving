@@ -39,7 +39,6 @@ int main(){
         }
     }
 
-    bool answer = true;
     int root;
     cin >> root;
     root = find(root);
