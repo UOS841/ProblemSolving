@@ -9,7 +9,7 @@ int main(){
         M,  // The number of questions
         X;  // The id of student
     cin >> N >> M >> X;
-    vector<int> students(N+1);
+    vector<int> students(N + 1);
 
     vector<vector<int>> graph_upper(N + 1, vector<int>());   // downside
     vector<vector<int>> graph_lower(N + 1, vector<int>());   // upside
@@ -24,19 +24,17 @@ int main(){
     vector<bool> visited;
     queue<int> q;
     
-
     visited.assign(N+1, false);
     q.push(X);
     int upper = 0;
 
-    // 상ㅎ
-
+    //
     while(!q.empty()){
         int cur = q.front(); q.pop();
-        upper++;
         if(visited[cur]){
             continue;
         }
+        upper++;
         visited[cur] = true;
         for(int j = 0; j < graph_upper[cur].size(); j++){
             int nxt = graph_upper[cur][j];
@@ -55,10 +53,10 @@ int main(){
             continue;
         }
         lower++;
-        visited[cur] = true;
         for(int j = 0; j < graph_lower[cur].size(); j++){
             int nxt = graph_lower[cur][j];
             if(!visited[nxt]){
+                visited[cur] = true;
                 q.push(nxt);
             }
         }
