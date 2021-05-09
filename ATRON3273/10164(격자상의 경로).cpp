@@ -37,8 +37,17 @@ int main()
 	}
 	else
 	{
-		int check_r = K / M;
-		int check_c = K % M - 1;
+		int check_r, check_c;
+		if (K % M == 0)
+		{
+			check_r = K / M - 1;
+			check_c = M - 1;
+		}
+		else
+		{
+			check_r = K / M;
+			check_c = K % M - 1;
+		}
 
 		int check_point_path_num = path[check_r][check_c];
 		int final_point_path_num = path[N - check_r - 1][M - check_c - 1];
