@@ -67,7 +67,7 @@ set<int> find_erase_node(vector<pair<int, int>> sorted_tree_arr, int erase_node)
 			is_remain[cur_node] = true;
 		}
 
-		cout << cur_node << " : " << cur_node_parent << " " << is_remain[i] << endl;
+		//cout << cur_node << " : " << cur_node_parent << " " << is_remain[i] << endl;
 	}
 
 	return erase_node_set;
@@ -140,7 +140,7 @@ int main()
 	set<int> erase_node_set = find_erase_node(sort_tree_array(tree), erase_node);
 	set<int> remain_node_set = find_remain_node(leaf_node_set, erase_node_set, tree, erase_node);
 
-	
+	/*
 	cout << "leaf : ";
 	for (set<int>::iterator iter = leaf_node_set.begin(); iter != leaf_node_set.end(); iter++)
 	{
@@ -161,7 +161,7 @@ int main()
 		cout << *iter << " ";
 	}
 	cout << endl;
-	
+	*/
 
 	cout << find_remain_node_num(remain_node_set);
 	return 0;
