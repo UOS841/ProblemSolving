@@ -14,15 +14,9 @@ int main() {
 	vector<int> arr(N);
     vector<int> NGE(N, -1);
 
-	for (int i = 0, t = 0; i < N; i++){
-        cin >> arr[i];
-    }
-	
 	stack<int> s;
 	for (int i = 0; i < N; i++) {
-        if(s.empty()){
-            s.push(i);
-        }
+        cin >> arr[i];
 
 		while (!s.empty() && arr[s.top()] < arr[i]) {
 			NGE[s.top()] = arr[i];
@@ -34,5 +28,4 @@ int main() {
 	for (int i = 0; i < N; i++){
         cout << NGE[i] << " ";
     }
-
 }

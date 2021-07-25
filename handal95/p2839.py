@@ -13,4 +13,4 @@ for i in range(5):
 if bag5 == -1:
     print(-1)
 else:
-    print(int(bag3+bag5))
+    print(int(bag3 + bag5))

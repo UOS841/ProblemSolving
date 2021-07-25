@@ -11,7 +11,7 @@ int cut_cake(priority_queue<int, vector<int>, greater<int>> pq, int& M){
 
         if(cur == 10){
             answer++;
-        } else if (cur > 10 && M > 0){
+        } else if (cur > 10){
             M--;
             answer++;
             if(cur == 20){
@@ -22,13 +22,6 @@ int cut_cake(priority_queue<int, vector<int>, greater<int>> pq, int& M){
         }
     }
     
-    while(!pq.empty()){
-        if(pq.top() == 10){
-            answer++;
-        }
-        pq.pop();
-    }
-
     return answer;
 }
 

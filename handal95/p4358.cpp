@@ -9,7 +9,7 @@ int main(){
     cout.precision(4);
     cout << fixed;
     
-    map<string, double> hash_map;
+    map<string, int> hash_map;
     string species;
     int N = 0;
     while(getline(cin, species)){
@@ -22,7 +22,7 @@ int main(){
     
     for(auto species: hash_map){
         cout << species.first << " ";
-        cout << (species.second / N) * 100 << "\n";
+        cout << (species.second / N) * 100.0 << "\n";
     }
 }
  

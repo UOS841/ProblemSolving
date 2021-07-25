@@ -3,4 +3,4 @@ expected = input().split()
 
 participants = L * P
 for i in range(5):
-    print(int(expected[i]) - participants, end=' ')
+    print(int(expected[i]) - participants, end=" ")

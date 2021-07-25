@@ -1,3 +1,3 @@
 A, I = map(int, input().split())
 
-print(A*(I-1) + 1)
+print(A * (I - 1) + 1)

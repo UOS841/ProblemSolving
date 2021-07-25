@@ -1,2 +1,2 @@
 N = int(input())
-print((N-1946))
+print((N - 1946))
