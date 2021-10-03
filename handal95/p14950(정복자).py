@@ -53,7 +53,7 @@ def solve():
         if parent[A] == parent[B]:
             continue
 
-        answer += cost + ( count * T )
+        answer += cost + (count * T)
         count += 1
         parent = [parent[A] if x == parent[B] else x for x in parent]
 

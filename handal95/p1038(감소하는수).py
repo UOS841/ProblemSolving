@@ -22,13 +22,13 @@ def inputs():
 def solve():
     N = inputs()
 
-    if N == 0 :
+    if N == 0:
         print(0)
         return
     elif N >= 1023:
         print(-1)
         return
-    
+
     cnt = 0
     answer = 1
     while True:

@@ -1,8 +1,9 @@
 import sys
+
 startBin = list(map(int, sys.stdin.readline().strip()))
 endBin = list(map(int, sys.stdin.readline().strip()))
 
-'''
+"""
 01  100  100
 11  011  010
 
@@ -13,7 +14,7 @@ endBin = list(map(int, sys.stdin.readline().strip()))
 11   011    010    01011
 
 
-'''
+"""
 
 startLen, endLen = len(startBin), len(endBin)
 if startLen == endLen:
@@ -38,17 +39,17 @@ if startLen == endLen:
 
 answer = 0
 if startLen > endLen:
-    answer += (startBin.count(1))
+    answer += startBin.count(1)
     startLen -= 1
     while startLen != endLen:
         answer += startLen
         startLen -= 1
     answer += endBin.count(0)
 elif startLen < endLen:
-    answer += (startBin.count(0) + 1)
+    answer += startBin.count(0) + 1
     startLen += 1
     while startLen != endLen:
         answer += startLen
         startLen += 1
-    answer += (endBin.count(1) - 1)
+    answer += endBin.count(1) - 1
 print(answer)
