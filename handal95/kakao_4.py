@@ -3,15 +3,10 @@ def count_score(ryan, appeach):
 
     for i in range(11):
         if ryan[i] > appeach[i]:
-            print(f"w", end= ' ')
             score += i
-        elif appeach[i] > 0:
-            print(f"l", end= ' ')
-            score -= i
         else:
-            print(f"d", end = ' ')
+            score -= i
             
-    print(f"{score:3d}, {ryan}, {appeach}")
     return score
     
 
@@ -39,7 +34,7 @@ def backtrack(ryan, appeach, i, left_arrow, cur_score):
     
     skip_score, skip_ryan = backtrack(
         unshoot_ryan, appeach, i + 1, unshoot_arrow, unshoot_score)
-
+# 2 ^ 11 < 
     if left_arrow > appeach[i]:  
         if next_score > skip_score:
             if cur_score > next_score:

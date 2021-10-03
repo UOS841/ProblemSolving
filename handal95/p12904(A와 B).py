@@ -20,20 +20,20 @@ def inputs():
     """
     S = stdin.readline().rstrip()
     T = stdin.readline().rstrip()
-    
+
     return list(S), list(T)
 
 
 def solve():
     S, T = inputs()
-    
+
     while len(S) != len(T):
         if T[-1] == "A":
             T.pop()
         else:
             T.pop()
             T = T[::-1]
-            
+
     print(int(S == T))
 
 

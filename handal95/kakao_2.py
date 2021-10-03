@@ -34,31 +34,32 @@ def convert_k(num_str, num, k) :
     return k_str if d == 0 else convert_k(k_str, d, k)
 
 def solution(n, k):
+    # 진수변환
     k_num = str(convert_k('', n, k)) if k < 10 else str(n)
 
+    # 123042314335(6)
     answer = 0
     if '0' in k_num:
         maximum = 0
         subnums = k_num.split('0')
+        # 123, 42314335
         for subnum in subnums:
             if subnum != '':
                 maximum = max(maximum, int(subnum))
     else:
         maximum = int(k_num)
-        
-        
+    
     primes = find_k_primes(maximum, k)
     
-    
     if '0' not in k_num:
+        # 100만보다 작으면 체 돌리기
         if int(k_num) < BIG_NUM and int(k_num) not in primes:
             return 0
 
+        # 100만보다 크면 숫자 하나만 찾고
         if int(k_num) >= BIG_NUM and find_one_prime(int(k_num)) is False:
             return 0
         
-
-
     # 0P0
     for k_n in k_num.split('0'):
         if k_n == '':

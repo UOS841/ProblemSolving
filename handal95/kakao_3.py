@@ -8,13 +8,10 @@ def calc_fee(parking_time, fees):
     default_time, default_fee, unit_time, unit_fee = fees
 
     if parking_time - default_time < 0:
-        print("default")
         return default_fee
     else:
-        print("add")
         parking_fee = math.ceil((parking_time - default_time) / (unit_time))
         return parking_fee * unit_fee + default_fee
-
 
 def solution(fees, records):
     total_times = dict()
@@ -45,7 +42,6 @@ def solution(fees, records):
         
     
     for car_id in total_times:
-        print(car_id)
         parking_fee[car_id] = calc_fee(total_times[car_id], fees)
 
     parking_fee = sorted(parking_fee.items())
