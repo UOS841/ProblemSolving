@@ -20,32 +20,29 @@ def inputs():
 def solve():
     N, tree = inputs()
 
-    def preorder(node='A'):
-        if node != '.':
+    def ordering(mode, node='A'):
+        if node == '.':
+            return
+
+        if mode == "preorder":
             print(node, end='')
-            preorder(tree[node][0])
-            preorder(tree[node][1])
+
+        ordering(tree[node][0])
+
+        if mode == "inorder":
+            print(node, end='')
+
+        ordering(tree[node][1])
+
+        if mode == "postorder":
+            print(node, end='')
+
     
-    preorder()
+    ordering('preorder')
     print()
-
-    def inorder(node='A'):
-        if node != '.':
-            inorder(tree[node][0])
-            print(node, end='')
-            inorder(tree[node][1])
-        
-    inorder()
+    ordering('inorder')
     print()
-
-    def postorder(node='A'):
-        if node != '.':
-            postorder(tree[node][0])
-            postorder(tree[node][1])
-            print(node, end='')
-
-    postorder()
-    print()
+    ordering('postorder')
 
 run()
 
