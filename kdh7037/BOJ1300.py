@@ -10,7 +10,7 @@ while left <= right:
     small = 0
 
     for i in range(1, n + 1):
-        small += min(mid//i , n)
+        small += min(mid//i , n) #몫 or 최댓값
     
     if small >= k:
         right = mid - 1
