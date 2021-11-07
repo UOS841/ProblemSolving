@@ -29,6 +29,7 @@ bool merge(int a, int b, vector<int> &parent) {
 int main(void) {
 	int
 		i, // indexer
+		n_remained, // the number of remained points
 		sum_weight,
 		V, // the number of vertex
 		E, // the number of edge
